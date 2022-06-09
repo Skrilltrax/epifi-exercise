@@ -1,0 +1,46 @@
+[versions]
+compose = "1.2.0-beta02"
+apollo = "3.3.0"
+kotlin = "1.6.21"
+coroutines = "1.6.1"
+dagger = "2.42"
+
+[libraries]
+# build dependencies
+build-agp = "com.android.tools.build:gradle:7.2.1"
+build-binarycompat = "org.jetbrains.kotlinx:binary-compatibility-validator:0.10.0"
+build-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "kotlin" }
+build-download = "de.undercouch:gradle-download-task:5.1.0"
+build-apollo-graphql = { module = "com.apollographql.apollo3:apollo-gradle-plugin", version.ref = "apollo" }
+build-hilt = "com.google.dagger:hilt-android-gradle-plugin:2.42"
+build-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+build-kover = "org.jetbrains.kotlinx:kover:0.5.1"
+build-mavenpublish = "com.vanniktech:gradle-maven-publish-plugin:0.19.0"
+build-okhttp = "com.squareup.okhttp3:okhttp:4.9.3"
+build-semver = "com.vdurmont:semver4j:3.1.0"
+build-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.4.2"
+build-dependencyanalysis = "com.autonomousapps:dependency-analysis-gradle-plugin:1.3.0"
+
+androidx-core = "androidx.core:core-ktx:1.8.0"
+androidx-appcompat = "androidx.appcompat:appcompat:1.4.2"
+androidx-constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.4"
+androidx-datastore-prefs-core = "androidx.datastore:datastore-preferences-core:1.0.0"
+androidx-lifecycle-ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
+
+material = "com.google.android.material:material:1.6.1"
+
+thirdparty-kotlin-result = "com.michael-bull.kotlin-result:kotlin-result:1.1.16"
+thirdparty-leakcanary = "com.squareup.leakcanary:leakcanary-android:2.9.1"
+
+testing-espresso-core = "androidx.test.espresso:espresso-core:3.4.0"
+testing-junit = "junit:junit:4.13.2"
+testing-junit-ext = "androidx.test.ext:junit:1.1.3"
+testing-junit-ui = "androidx.compose.ui:ui-test-junit4:1.1.1"
+testing-kotlin = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+testing-kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+testing-kotlin-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+
+[plugins]
+android-application = { id = "com.android.application", version = "7.4.0-alpha01" }
+android-library = { id = "com.android.library", version = "7.4.0-alpha01" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version = "1.6.21" }

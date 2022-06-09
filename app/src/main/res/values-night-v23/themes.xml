@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme. -->
+
     <style name="Theme.EpifiExercise" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/plump_purple</item>
@@ -13,6 +14,7 @@
         <item name="android:textColorTertiary">@color/light_grey</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?android:colorBackground</item>
+        <item name="android:windowLightStatusBar">false</item>
         <item name="android:navigationBarColor">?android:colorBackground</item>
         <!-- Customize your theme here. -->
     </style>

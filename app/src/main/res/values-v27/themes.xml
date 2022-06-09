@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme. -->
+
     <style name="Theme.EpifiExercise" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/plump_purple</item>
@@ -8,12 +9,16 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/fire_opal</item>
         <item name="colorSecondaryVariant">@color/fire_opal</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Tertiary Color -->
-        <item name="android:textColorTertiary">@color/light_grey</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:textColorTertiary">@color/davys_grey</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?android:colorBackground</item>
         <item name="android:navigationBarColor">?android:colorBackground</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
+        <item name="isLightTheme">false</item>
+
+
     </style>
 </resources>

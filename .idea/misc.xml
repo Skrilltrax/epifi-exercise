@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ASMSmaliIdeaPluginConfiguration">
-    <asm skipDebug="true" skipFrames="true" skipCode="false" expandFrames="false" />
-    <groovy codeStyle="LEGACY" />
-  </component>
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/font/poppins.xml" value="0.31296296296296294" />
+        <entry key="app/src/main/res/font/poppins_bold.xml" value="0.31296296296296294" />
+        <entry key="app/src/main/res/font/poppins_medium.xml" value="0.31296296296296294" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3392210144927536" />
+        <entry key="app/src/main/res/layout/fragment_bank.xml" value="0.25" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

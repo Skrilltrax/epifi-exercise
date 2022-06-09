@@ -37,12 +37,11 @@
     </style>
 
     <style name="LabelTextStyle" parent="TextAppearance.MaterialComponents.Caption">
-        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textColor">?android:textColorTertiary</item>
-        <item name="android:textStyle">bold</item>
-        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="fontFamily">@font/poppins_medium</item>
     </style>
 
     <style name="ClickableTextStyle" parent="TextAppearance.MaterialComponents.Subtitle1">
@@ -53,5 +52,13 @@
     </style>
 
     <style name="HintDisabledTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="hintAnimationEnabled">false</item>
+        <item name="hintEnabled">false</item>
+    </style>
+
+    <style name="PoppinsEditTextStyle">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="fontFamily">@font/poppins_medium</item>
     </style>
 </resources>

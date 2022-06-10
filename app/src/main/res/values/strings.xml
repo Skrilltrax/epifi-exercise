@@ -12,4 +12,5 @@
     <string name="next_button_text">NEXT</string>
     <string name="pan_unavailable_text">I don\'t have a PAN</string>
     <string name="date_error">Date is invalid</string>
+    <string name="details_submitted_successfully">Details Submitted Successfully</string>
 </resources>

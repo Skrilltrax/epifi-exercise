@@ -73,10 +73,16 @@ class BankFragment : Fragment(R.layout.fragment_bank) {
   private fun handleEvent(event: BankUiEvent) {
     when (event) {
       BankUiEvent.EVENT_DETAILS_SUBMITTED -> {
-        Toast.makeText(requireContext(), "SUBMITTED", Toast.LENGTH_LONG).show()
+        Toast.makeText(
+            requireContext(),
+            getString(R.string.details_submitted_successfully),
+            Toast.LENGTH_LONG
+          )
+          .show()
+        requireActivity().finish()
       }
       BankUiEvent.EVENT_PAN_UNAVAILABLE -> {
-        Toast.makeText(requireContext(), "UNAVAILABLE", Toast.LENGTH_LONG).show()
+        requireActivity().finish()
       }
     }
   }
@@ -123,15 +129,20 @@ class BankFragment : Fragment(R.layout.fragment_bank) {
       val opacityAnimation = createCaptionOpacityAnimator(dateErrorTv, true)
       val translationAnimation = createCaptionTranslationYAnimator(dateErrorTv)
       errorAnimator.playTogether(opacityAnimation, translationAnimation)
-      errorAnimator.addListener(onEnd = {
-        dateErrorTv.alpha = 1f
-        dateErrorTv.translationY = 0f
-      })
+      errorAnimator.addListener(
+        onEnd = {
+          dateErrorTv.alpha = 1f
+          dateErrorTv.translationY = 0f
+        }
+      )
       errorAnimator.start()
     }
   }
 
-  private fun createCaptionOpacityAnimator(captionView: TextView, display: Boolean): ObjectAnimator {
+  private fun createCaptionOpacityAnimator(
+    captionView: TextView,
+    display: Boolean
+  ): ObjectAnimator {
     val endValue = if (display) 1f else 0f
     val opacityAnimator = ObjectAnimator.ofFloat(captionView, View.ALPHA, endValue)
     opacityAnimator.duration = CAPTION_OPACITY_FADE_ANIMATION_DURATION.toLong()
@@ -140,8 +151,13 @@ class BankFragment : Fragment(R.layout.fragment_bank) {
   }
 
   private fun createCaptionTranslationYAnimator(captionView: TextView): ObjectAnimator {
-    val captionTranslationYPx = requireContext().resources.getDimensionPixelSize(R.dimen.textinput_caption_translate_y).toFloat()
-    val translationYAnimator = ObjectAnimator.ofFloat(captionView, View.TRANSLATION_Y, -captionTranslationYPx, 0f)
+    val captionTranslationYPx =
+      requireContext()
+        .resources
+        .getDimensionPixelSize(R.dimen.textinput_caption_translate_y)
+        .toFloat()
+    val translationYAnimator =
+      ObjectAnimator.ofFloat(captionView, View.TRANSLATION_Y, -captionTranslationYPx, 0f)
     translationYAnimator.duration = CAPTION_TRANSLATE_Y_ANIMATION_DURATION.toLong()
     translationYAnimator.interpolator = LinearOutSlowInInterpolator()
     return translationYAnimator
@@ -150,10 +166,10 @@ class BankFragment : Fragment(R.layout.fragment_bank) {
   companion object {
     /** Taken from [TextInputLayout] */
 
-    /** Duration for the caption's vertical translation animation.  */
+    /** Duration for the caption's vertical translation animation. */
     private const val CAPTION_TRANSLATE_Y_ANIMATION_DURATION = 217
 
-    /** Duration for the caption's opacity fade animation.  */
+    /** Duration for the caption's opacity fade animation. */
     private const val CAPTION_OPACITY_FADE_ANIMATION_DURATION = 167
   }
 }

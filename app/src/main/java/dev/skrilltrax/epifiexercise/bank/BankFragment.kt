@@ -1,20 +1,16 @@
 package dev.skrilltrax.epifiexercise.bank
 
 import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.View
-import android.view.animation.LinearInterpolator
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.animation.addListener
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.textfield.TextInputLayout
 import dev.skrilltrax.epifiexercise.R
 import dev.skrilltrax.epifiexercise.databinding.FragmentBankBinding
 import dev.skrilltrax.epifiexercise.utils.createOpacityAnimator
@@ -94,7 +90,7 @@ class BankFragment : Fragment(R.layout.fragment_bank) {
       if (state.isPANValid) {
         panTil.error = null
       } else {
-        panTil.error = "PAN number is invalid"
+        panTil.error = getString(R.string.pan_invalid)
       }
 
       if (state.isDateValid) {
@@ -128,7 +124,7 @@ class BankFragment : Fragment(R.layout.fragment_bank) {
   private fun showDateErrorIfNotVisible(dateErrorTv: TextView) {
     if (dateErrorTv.alpha != 1f) {
       errorAnimator = AnimatorSet()
-      val opacityAnimation = dateErrorTv.createOpacityAnimator( true)
+      val opacityAnimation = dateErrorTv.createOpacityAnimator(true)
       val translationAnimation = dateErrorTv.createTranslationYAnimator()
       errorAnimator.playTogether(opacityAnimation, translationAnimation)
       errorAnimator.addListener(

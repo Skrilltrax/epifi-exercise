@@ -54,11 +54,20 @@
     <style name="HintDisabledTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="hintAnimationEnabled">false</item>
         <item name="hintEnabled">false</item>
+        <item name="errorEnabled">true</item>
     </style>
 
     <style name="PoppinsEditTextStyle">
         <item name="android:fontFamily">@font/poppins_medium</item>
         <item name="android:includeFontPadding">false</item>
         <item name="fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="ErrorTextStyle">
+        <item name="android:textColor">?attr/colorError</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:alpha">0</item>
     </style>
 </resources>

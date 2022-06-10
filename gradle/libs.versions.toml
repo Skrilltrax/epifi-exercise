@@ -49,3 +49,4 @@ testing-kotlin-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", vers
 android-application = { id = "com.android.application", version = "7.4.0-alpha01" }
 android-library = { id = "com.android.library", version = "7.4.0-alpha01" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version = "1.6.21" }
+spotless = { id = "com.diffplug.spotless", version = "6.7.0"}

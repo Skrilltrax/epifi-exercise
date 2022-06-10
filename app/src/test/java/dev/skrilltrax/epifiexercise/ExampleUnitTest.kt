@@ -1,4 +1,4 @@
-package dev.skrilltrax.epifiexcercise
+package dev.skrilltrax.epifiexercise
 
 import org.junit.Assert.*
 import org.junit.Test

@@ -1,4 +1,4 @@
-package dev.skrilltrax.epifiexcercise
+package dev.skrilltrax.epifiexercise
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

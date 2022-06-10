@@ -1,4 +1,4 @@
-package dev.skrilltrax.epifiexcercise
+package dev.skrilltrax.epifiexercise
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry

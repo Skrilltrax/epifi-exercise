@@ -25,12 +25,17 @@ androidx-core = "androidx.core:core-ktx:1.8.0"
 androidx-appcompat = "androidx.appcompat:appcompat:1.4.2"
 androidx-constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.4"
 androidx-datastore-prefs-core = "androidx.datastore:datastore-preferences-core:1.0.0"
+androidx-fragment-ktx = "androidx.fragment:fragment-ktx:1.4.1"
 androidx-lifecycle-ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
+androidx-lifecycle-viewmodel-ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-rc01"
+
+kotlin-coroutines-android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
 
 material = "com.google.android.material:material:1.6.1"
 
 thirdparty-kotlin-result = "com.michael-bull.kotlin-result:kotlin-result:1.1.16"
 thirdparty-leakcanary = "com.squareup.leakcanary:leakcanary-android:2.9.1"
+thirdparty-flowbinding = "io.github.reactivecircus.flowbinding:flowbinding-android:1.2.0"
 
 testing-espresso-core = "androidx.test.espresso:espresso-core:3.4.0"
 testing-junit = "junit:junit:4.13.2"

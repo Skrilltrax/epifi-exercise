@@ -17,6 +17,8 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputLayout
 import dev.skrilltrax.epifiexercise.R
 import dev.skrilltrax.epifiexercise.databinding.FragmentBankBinding
+import dev.skrilltrax.epifiexercise.utils.createOpacityAnimator
+import dev.skrilltrax.epifiexercise.utils.createTranslationYAnimator
 import dev.skrilltrax.epifiexercise.utils.showEmptyError
 import dev.skrilltrax.epifiexercise.utils.viewBinding
 import kotlinx.coroutines.flow.combine
@@ -116,7 +118,7 @@ class BankFragment : Fragment(R.layout.fragment_bank) {
   private fun hideDateErrorIfVisible(dateErrorTv: TextView) {
     if (dateErrorTv.alpha != 0f) {
       errorAnimator = AnimatorSet()
-      val opacityAnimation = createCaptionOpacityAnimator(dateErrorTv, false)
+      val opacityAnimation = dateErrorTv.createOpacityAnimator(false)
       errorAnimator.play(opacityAnimation)
       errorAnimator.addListener(onEnd = { dateErrorTv.alpha = 0f })
       errorAnimator.start()
@@ -126,8 +128,8 @@ class BankFragment : Fragment(R.layout.fragment_bank) {
   private fun showDateErrorIfNotVisible(dateErrorTv: TextView) {
     if (dateErrorTv.alpha != 1f) {
       errorAnimator = AnimatorSet()
-      val opacityAnimation = createCaptionOpacityAnimator(dateErrorTv, true)
-      val translationAnimation = createCaptionTranslationYAnimator(dateErrorTv)
+      val opacityAnimation = dateErrorTv.createOpacityAnimator( true)
+      val translationAnimation = dateErrorTv.createTranslationYAnimator()
       errorAnimator.playTogether(opacityAnimation, translationAnimation)
       errorAnimator.addListener(
         onEnd = {
@@ -137,39 +139,5 @@ class BankFragment : Fragment(R.layout.fragment_bank) {
       )
       errorAnimator.start()
     }
-  }
-
-  private fun createCaptionOpacityAnimator(
-    captionView: TextView,
-    display: Boolean
-  ): ObjectAnimator {
-    val endValue = if (display) 1f else 0f
-    val opacityAnimator = ObjectAnimator.ofFloat(captionView, View.ALPHA, endValue)
-    opacityAnimator.duration = CAPTION_OPACITY_FADE_ANIMATION_DURATION.toLong()
-    opacityAnimator.interpolator = LinearInterpolator()
-    return opacityAnimator
-  }
-
-  private fun createCaptionTranslationYAnimator(captionView: TextView): ObjectAnimator {
-    val captionTranslationYPx =
-      requireContext()
-        .resources
-        .getDimensionPixelSize(R.dimen.textinput_caption_translate_y)
-        .toFloat()
-    val translationYAnimator =
-      ObjectAnimator.ofFloat(captionView, View.TRANSLATION_Y, -captionTranslationYPx, 0f)
-    translationYAnimator.duration = CAPTION_TRANSLATE_Y_ANIMATION_DURATION.toLong()
-    translationYAnimator.interpolator = LinearOutSlowInInterpolator()
-    return translationYAnimator
-  }
-
-  companion object {
-    /** Taken from [TextInputLayout] */
-
-    /** Duration for the caption's vertical translation animation. */
-    private const val CAPTION_TRANSLATE_Y_ANIMATION_DURATION = 217
-
-    /** Duration for the caption's opacity fade animation. */
-    private const val CAPTION_OPACITY_FADE_ANIMATION_DURATION = 167
   }
 }

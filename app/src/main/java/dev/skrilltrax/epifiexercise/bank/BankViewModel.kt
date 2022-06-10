@@ -1,6 +1,5 @@
 package dev.skrilltrax.epifiexercise.bank
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.skrilltrax.epifiexercise.validation.DateValidator
@@ -19,6 +18,7 @@ class BankViewModel : ViewModel() {
   val uiEvent = _uiEvent.asSharedFlow()
 
   fun validatePAN(text: String) {
+    // If PAN is empty, do not show an error. Also, disable next button.
     if (text.isEmpty() || text.length != PANValidator.PAN_LENGTH) {
       _uiState.update { uiState -> uiState.copy(isPANValid = true, isNextButtonEnabled = false) }
       return
@@ -32,16 +32,19 @@ class BankViewModel : ViewModel() {
   }
 
   fun validateDate(day: String, month: String, year: String) {
+    // If day field of date is empty, do not show an error. Also, disable next button.
     if (day.isEmpty() || day.length != DateValidator.DAY_LENGTH) {
       _uiState.update { uiState -> uiState.copy(isDateValid = true, isNextButtonEnabled = false) }
       return
     }
 
+    // If month field of date is empty, do not show an error. Also, disable next button.
     if (month.isEmpty() || month.length != DateValidator.MONTH_LENGTH) {
       _uiState.update { uiState -> uiState.copy(isDateValid = true, isNextButtonEnabled = false) }
       return
     }
 
+    // If year field of date is empty, do not show an error. Also, disable next button.
     if (year.isEmpty() || year.length != DateValidator.YEAR_LENGTH) {
       _uiState.update { uiState -> uiState.copy(isDateValid = true, isNextButtonEnabled = false) }
       return
@@ -49,8 +52,6 @@ class BankViewModel : ViewModel() {
 
     val date = "$day/$month/$year"
     val isValid = dateValidator.isValid(date)
-
-    Log.d("ViewModel", "date: $date isValid: $isValid")
 
     _uiState.update { uiState ->
       val enableNextButton = isValid && uiState.isPANValid

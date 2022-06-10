@@ -2,6 +2,9 @@ package dev.skrilltrax.epifiexercise.validation
 
 import java.util.regex.Pattern
 
+/*
+ * A class to validate PAN number received from user input.
+ */
 class PANValidator : TextValidator {
   override fun isValid(text: String): Boolean {
     val matcher = regexPattern.matcher(text)

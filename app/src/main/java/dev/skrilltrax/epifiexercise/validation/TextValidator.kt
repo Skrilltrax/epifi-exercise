@@ -1,5 +1,8 @@
 package dev.skrilltrax.epifiexercise.validation
 
+/*
+ * Interface for text validation
+ */
 interface TextValidator {
-  public fun isValid(text: String): Boolean
+  fun isValid(text: String): Boolean
 }

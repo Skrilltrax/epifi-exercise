@@ -34,8 +34,6 @@ The app does not persist any user data so it does not require a database (Room/S
 
 ## Screenshots
 
-### Light Theme
-
 <img src="https://user-images.githubusercontent.com/10516866/173055954-382ac858-c2c5-412a-ab43-627442ff4e1d.jpeg" width="200px" />  <img src="https://user-images.githubusercontent.com/10516866/173055951-bd781d35-f4ca-4327-9626-78a55e69a927.jpeg" width="200px" /> <img src="https://user-images.githubusercontent.com/10516866/173055944-42b8e169-411f-4a41-87ec-9847dbbd57e3.jpeg" width="200px" />
   
 <img src="https://user-images.githubusercontent.com/10516866/173056818-2e24a84b-bbce-4d1d-b7c2-dd07ce32ff93.jpeg" width="200px" /> <img src="https://user-images.githubusercontent.com/10516866/173056811-2ea7a6b0-1084-494b-b53e-8216d4d8fe9d.jpeg" width="200px" /> <img src="https://user-images.githubusercontent.com/10516866/173056803-c89e5bbb-68e0-43e6-bfb5-6d705afc2c24.jpeg" width="200px" />

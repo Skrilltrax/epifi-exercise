@@ -51,6 +51,10 @@ class BankFragment : Fragment(R.layout.fragment_bank) {
   private fun setupTextWatchers() {
     binding.panTiet.doAfterTextChanged { editable ->
       val text = editable?.toString() ?: ""
+      if (text.contains(lowercasePattern)) {
+        binding.panTiet.setText(text.uppercase())
+        binding.panTiet.setSelection(text.length)
+      }
       viewModel.validatePAN(text)
     }
 
@@ -149,5 +153,9 @@ class BankFragment : Fragment(R.layout.fragment_bank) {
       )
       errorAnimator.start()
     }
+  }
+
+  companion object {
+    private val lowercasePattern = Regex("[a-z]")
   }
 }

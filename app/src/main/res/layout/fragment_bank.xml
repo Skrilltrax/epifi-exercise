@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7" />
+        app:layout_constraintGuide_percent="0.7017784" />
 
     <TextView
         android:id="@+id/tv_title"
@@ -74,15 +74,18 @@
         android:layout_marginTop="4dp"
         app:layout_constraintBottom_toTopOf="@id/birthdate_tv"
         app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@id/pan_tv">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pan_tiet"
             style="@style/PoppinsEditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/pan_hint"
             android:inputType="textCapCharacters"
+            android:maxLength="10"
             android:textAllCaps="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,12 +96,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:text="@string/birthdate_label"
-        app:layout_constraintBottom_toTopOf="@id/date_til"
+        app:layout_constraintBottom_toTopOf="@id/day_til"
         app:layout_constraintStart_toEndOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@id/pan_til" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/date_til"
+        android:id="@+id/day_til"
         style="@style/HintDisabledTextInputLayoutStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -110,6 +113,7 @@
         app:layout_constraintTop_toBottomOf="@id/birthdate_tv">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/day_tiet"
             style="@style/PoppinsEditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -127,13 +131,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
-        app:layout_constraintBottom_toBottomOf="@id/date_til"
+        app:layout_constraintBottom_toBottomOf="@id/day_til"
         app:layout_constraintEnd_toStartOf="@id/year_til"
         app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintStart_toEndOf="@id/date_til"
-        app:layout_constraintTop_toTopOf="@id/date_til">
+        app:layout_constraintStart_toEndOf="@id/day_til"
+        app:layout_constraintTop_toTopOf="@id/day_til">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/month_tiet"
             style="@style/PoppinsEditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -151,13 +156,14 @@
         style="@style/HintDisabledTextInputLayoutStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/date_til"
+        app:layout_constraintBottom_toBottomOf="@id/day_til"
         app:layout_constraintEnd_toStartOf="@id/guideline_end"
         app:layout_constraintHorizontal_weight="3"
         app:layout_constraintStart_toEndOf="@id/month_til"
-        app:layout_constraintTop_toTopOf="@id/date_til">
+        app:layout_constraintTop_toTopOf="@id/day_til">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/year_tiet"
             style="@style/PoppinsEditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -168,6 +174,16 @@
             android:maxLines="1"
             android:textAlignment="center" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/date_error_tv"
+        style="@style/ErrorTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/date_error"
+        app:layout_constraintBottom_toBottomOf="@id/day_til"
+        app:layout_constraintStart_toEndOf="@id/guideline_start" />
 
     <TextView
         android:id="@+id/learn_more_tv"

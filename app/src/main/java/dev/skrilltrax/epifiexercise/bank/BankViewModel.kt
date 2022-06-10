@@ -20,33 +20,33 @@ class BankViewModel : ViewModel() {
   fun validatePAN(text: String) {
     // If PAN is empty, do not show an error. Also, disable next button.
     if (text.isEmpty() || text.length != PANValidator.PAN_LENGTH) {
-      _uiState.update { uiState -> uiState.copy(isPANValid = true, isNextButtonEnabled = false) }
+      _uiState.update { uiState -> uiState.copy(isPANValid = false, showPANError = false, isNextButtonEnabled = false) }
       return
     }
 
     val isValid = panValidator.isValid(text)
     _uiState.update { uiState ->
       val enableNextButton = isValid && uiState.isDateValid
-      uiState.copy(isPANValid = isValid, isNextButtonEnabled = enableNextButton)
+      uiState.copy(isPANValid = isValid, showPANError = !isValid, isNextButtonEnabled = enableNextButton)
     }
   }
 
   fun validateDate(day: String, month: String, year: String) {
     // If day field of date is empty, do not show an error. Also, disable next button.
-    if (day.isEmpty() || day.length != DateValidator.DAY_LENGTH) {
-      _uiState.update { uiState -> uiState.copy(isDateValid = true, isNextButtonEnabled = false) }
+    if (day.isEmpty() || day.length < DateValidator.DAY_LENGTH) {
+      _uiState.update { uiState -> uiState.copy(isDateValid = false, showDateError = false, isNextButtonEnabled = false) }
       return
     }
 
     // If month field of date is empty, do not show an error. Also, disable next button.
-    if (month.isEmpty() || month.length != DateValidator.MONTH_LENGTH) {
-      _uiState.update { uiState -> uiState.copy(isDateValid = true, isNextButtonEnabled = false) }
+    if (month.isEmpty() || month.length < DateValidator.MONTH_LENGTH) {
+      _uiState.update { uiState -> uiState.copy(isDateValid = false, showDateError = false, isNextButtonEnabled = false) }
       return
     }
 
     // If year field of date is empty, do not show an error. Also, disable next button.
-    if (year.isEmpty() || year.length != DateValidator.YEAR_LENGTH) {
-      _uiState.update { uiState -> uiState.copy(isDateValid = true, isNextButtonEnabled = false) }
+    if (year.isEmpty() || year.length < DateValidator.YEAR_LENGTH) {
+      _uiState.update { uiState -> uiState.copy(isDateValid = false, showDateError = false, isNextButtonEnabled = false) }
       return
     }
 
@@ -55,7 +55,7 @@ class BankViewModel : ViewModel() {
 
     _uiState.update { uiState ->
       val enableNextButton = isValid && uiState.isPANValid
-      uiState.copy(isDateValid = isValid, isNextButtonEnabled = enableNextButton)
+      uiState.copy(isDateValid = isValid, showDateError = !isValid, isNextButtonEnabled = enableNextButton)
     }
   }
 

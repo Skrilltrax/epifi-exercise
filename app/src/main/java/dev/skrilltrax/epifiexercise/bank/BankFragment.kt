@@ -1,7 +1,11 @@
 package dev.skrilltrax.epifiexercise.bank
 
 import android.animation.AnimatorSet
+import android.graphics.Color
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.style.ClickableSpan
+import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -32,6 +36,16 @@ class BankFragment : Fragment(R.layout.fragment_bank) {
     observeFlows()
     setupClickListeners()
     setupTextWatchers()
+    setupSpannedText()
+  }
+
+  private fun setupSpannedText() {
+    val spannableString = SpannableString(getString(R.string.learn_more_text))
+    val learnMoreString = getString(R.string.learn_more)
+    val startIndex = spannableString.length - learnMoreString.length
+    val endIndex = spannableString.length
+    spannableString.setSpan(ForegroundColorSpan(Color.BLUE), startIndex, endIndex, SpannableString.SPAN_INCLUSIVE_INCLUSIVE)
+    binding.learnMoreTv.text = spannableString
   }
 
   private fun setupTextWatchers() {
@@ -87,24 +101,24 @@ class BankFragment : Fragment(R.layout.fragment_bank) {
 
   private fun render(state: BankUiState) {
     with(binding) {
-      if (state.isPANValid) {
-        panTil.error = null
-      } else {
+      if (state.showPANError) {
         panTil.error = getString(R.string.pan_invalid)
+      } else {
+        panTil.error = null
       }
 
-      if (state.isDateValid) {
-        yearTil.error = null
-        monthTil.error = null
-        dayTil.error = null
-        hideDateErrorIfVisible(dateErrorTv)
-      } else {
+      if (state.showDateError) {
         binding.dayTil.errorIconDrawable = null
         binding.monthTil.errorIconDrawable = null
         binding.dayTil.showEmptyError()
         binding.monthTil.showEmptyError()
         binding.yearTil.showEmptyError()
         showDateErrorIfNotVisible(dateErrorTv)
+      } else {
+        yearTil.error = null
+        monthTil.error = null
+        dayTil.error = null
+        hideDateErrorIfVisible(dateErrorTv)
       }
 
       binding.nextBtn.isEnabled = state.isNextButtonEnabled

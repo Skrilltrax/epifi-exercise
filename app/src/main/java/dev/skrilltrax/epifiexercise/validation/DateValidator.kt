@@ -40,10 +40,10 @@ class DateValidator : TextValidator {
   }
 
   companion object {
-    const val DATE_PATTERN: String = "dd/MM/yyyy"
+    const val DATE_PATTERN: String = "d/M/yyyy"
     const val MAX_AGE: Int = 150
-    const val DAY_LENGTH: Int = 2
-    const val MONTH_LENGTH: Int = 2
+    const val DAY_LENGTH: Int = 1
+    const val MONTH_LENGTH: Int = 1
     const val YEAR_LENGTH: Int = 4
   }
 }

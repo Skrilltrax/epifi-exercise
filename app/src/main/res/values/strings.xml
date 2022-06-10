@@ -9,6 +9,7 @@
     <string name="month_hint">MM</string>
     <string name="year_hint">YYYY</string>
     <string name="learn_more_text"><![CDATA[Providing PAN & Date of Birth helps us find and fetch your KYC from a central registry by the Government of India. Learn More]]></string>
+    <string name="learn_more">Learn More</string>
     <string name="next_button_text">NEXT</string>
     <string name="pan_unavailable_text">I don\'t have a PAN</string>
     <string name="date_error">Date is invalid</string>
